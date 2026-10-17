@@ -25,15 +25,49 @@
             </div>
         </header>
 
-        <section class="game-panel" aria-label="Jogo da memória">
+        <div class="content-layout">
+            <div class="main-column">
+                <section id="name-screen" class="name-screen" aria-labelledby="name-heading">
+            <div class="name-card">
+                <span class="name-illustration" aria-hidden="true">🧭</span>
+                <span class="eyebrow">ANTES DE COMEÇAR</span>
+                <h2 id="name-heading">Qual é o seu nome?</h2>
+                <p>Vamos registrar seu resultado no quadro dos exploradores.</p>
+                <form id="name-form" class="name-form">
+                    <label for="player-name">Seu nome ou apelido</label>
+                    <input id="player-name" name="playerName" type="text" maxlength="20" autocomplete="nickname" placeholder="Ex.: Ana" required>
+                    <button class="start-button" type="submit">Começar a aventura <span aria-hidden="true">→</span></button>
+                    <p id="name-error" class="form-error" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+            </section>
+
+            <section id="phase-screen" class="phase-screen" aria-labelledby="phase-heading" hidden>
+            <div class="phase-intro">
+                <div>
+                    <span class="eyebrow">ESCOLHA SUA AVENTURA</span>
+                    <h2 id="phase-heading">Qual fase você quer explorar?</h2>
+                    <p>Olá, <strong id="phase-player-name"></strong>! Escolha um período da história do Brasil.</p>
+                </div>
+                <button class="change-player-button" id="phase-back" type="button">← Trocar jogador</button>
+            </div>
+            <div id="phase-grid" class="phase-grid" aria-label="Fases disponíveis"></div>
+            </section>
+
+            <section id="game-panel" class="game-panel" aria-label="Jogo da memória" hidden>
             <div class="game-topline">
                 <div>
-                    <h2>Encontre os pares</h2>
-                    <p class="instruction">Cada par conecta uma personalidade a um fato histórico.</p>
+                    <h2 id="game-phase-title">Encontre os pares</h2>
+                    <p id="game-phase-description" class="instruction">Cada par conecta uma personalidade a um fato histórico.</p>
+                    <p class="current-player">Jogador: <strong id="current-player"></strong></p>
                 </div>
-                <button class="restart-button" id="restart" type="button">
-                    <span aria-hidden="true">↻</span> Recomeçar
-                </button>
+                <div class="game-actions">
+                    <button class="change-player-button" id="change-phase" type="button">Fases</button>
+                    <button class="change-player-button" id="change-player" type="button">Trocar nome</button>
+                    <button class="restart-button" id="restart" type="button">
+                        <span aria-hidden="true">↻</span> Recomeçar
+                    </button>
+                </div>
             </div>
 
             <div class="stats" aria-label="Estatísticas da partida">
@@ -72,7 +106,20 @@
                 </div>
                 <button id="play-again" class="play-again-button" type="button">Jogar novamente</button>
             </section>
-        </section>
+                </section>
+            </div>
+
+            <aside class="leaderboard-panel" aria-labelledby="leaderboard-heading">
+            <div class="leaderboard-heading">
+                <span class="leaderboard-icon" aria-hidden="true">🏆</span>
+                <div>
+                    <h2 id="leaderboard-heading">Ranking dos exploradores</h2>
+                    <p>As 5 partidas mais recentes, ordenadas pelo menor tempo.</p>
+                </div>
+            </div>
+            <ol id="leaderboard-list" class="leaderboard-list" aria-live="polite"></ol>
+            </aside>
+        </div>
 
         <footer class="footer-note"><span aria-hidden="true">💡</span> Dica: combine uma personalidade com o acontecimento que marcou sua época.</footer>
     </main>
