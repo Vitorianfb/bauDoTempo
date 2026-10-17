@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff8ed">
+    <meta name="description" content="Jogue e descubra momentos marcantes da história do Brasil neste jogo da memória.">
+    <title>Baú do Tempo — jogo da memória</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/game.js" defer></script>
+</head>
+<body>
+    <main class="game-shell">
+        <header class="hero">
+            <div class="hero-copy">
+                <span class="eyebrow"><span aria-hidden="true">✦</span> UMA VIAGEM PELA NOSSA HISTÓRIA</span>
+                <h1>Baú <span>do Tempo</span></h1>
+                <p>Abra os baús, encontre os pares e descubra histórias incríveis do Brasil.</p>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+                <span class="sparkle sparkle-one">✦</span>
+                <span class="sparkle sparkle-two">✧</span>
+                <span class="hero-chest">🧰</span>
+                <span class="hero-coin">🪙</span>
+            </div>
+        </header>
+
+        <section class="game-panel" aria-label="Jogo da memória">
+            <div class="game-topline">
+                <div>
+                    <h2>Encontre os pares</h2>
+                    <p class="instruction">Cada par conecta uma personalidade a um fato histórico.</p>
+                </div>
+                <button class="restart-button" id="restart" type="button">
+                    <span aria-hidden="true">↻</span> Recomeçar
+                </button>
+            </div>
+
+            <div class="stats" aria-label="Estatísticas da partida">
+                <div class="stat-card stat-score">
+                    <span class="stat-icon" aria-hidden="true">⭐</span>
+                    <span class="stat-label">PONTOS</span>
+                    <strong id="score">0</strong>
+                </div>
+                <div class="stat-card stat-moves">
+                    <span class="stat-icon" aria-hidden="true">🃏</span>
+                    <span class="stat-label">TENTATIVAS</span>
+                    <strong id="moves">0</strong>
+                </div>
+                <div class="stat-card stat-time">
+                    <span class="stat-icon" aria-hidden="true">⏱️</span>
+                    <span class="stat-label">TEMPO</span>
+                    <strong id="timer">00:00</strong>
+                </div>
+            </div>
+
+            <div class="progress-row">
+                <span id="progress-label">Pares encontrados <strong id="pairs-found">0</strong> de <strong id="pairs-total">6</strong></span>
+                <div class="progress-track" role="progressbar" aria-label="Pares encontrados" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0" id="progress-bar">
+                    <span id="progress-fill"></span>
+                </div>
+            </div>
+
+            <p id="message" class="message" role="status" aria-live="polite">Escolha uma carta para começar a aventura!</p>
+            <div id="game-board" class="game-board" aria-label="Cartas do jogo"></div>
+
+            <section id="victory" class="victory" aria-live="polite" hidden>
+                <span aria-hidden="true">🎉</span>
+                <div>
+                    <h2>Baú aberto!</h2>
+                    <p id="victory-message">Você encontrou todos os pares.</p>
+                </div>
+                <button id="play-again" class="play-again-button" type="button">Jogar novamente</button>
+            </section>
+        </section>
+
+        <footer class="footer-note"><span aria-hidden="true">💡</span> Dica: combine uma personalidade com o acontecimento que marcou sua época.</footer>
+    </main>
+</body>
+</html>
