@@ -202,6 +202,7 @@ button:focus-visible, .card:focus-visible { outline: 3px solid #f2ae48; outline-
 .card.matched { background: #e8f8f2; box-shadow: 0 4px 0 #b8e6d6, 0 7px 12px rgba(48, 153, 119, .1); color: #287b67; cursor: default; animation: match-pop .4s ease; }
 .card.matched::before { border-color: #b9e7d7; }
 .card-emoji { font-size: clamp(23px, 4vw, 34px); line-height: 1; }
+.card-image { width: min(100%, 140px); max-height: 72%; border-radius: 8px; object-fit: contain; }
 .card-title { max-width: 100%; font-size: clamp(10px, 1.55vw, 13px); font-weight: 800; line-height: 1.2; }
 .card-detail { max-width: 100%; color: #737b8f; font-size: clamp(8px, 1.15vw, 10px); line-height: 1.25; }
 .card.matched .card-detail { color: #448b76; }

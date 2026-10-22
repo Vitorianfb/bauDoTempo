@@ -8,7 +8,7 @@ const phases = [
         color: '#b97842',
         tint: '#fbefdf',
         pairs: [
-            { id: 1, first: { title: 'Povos originários', emoji: '🪶' }, second: { title: 'Diversidade', detail: 'Centenas de povos, línguas e culturas existiam no território.', emoji: '🌿' } },
+            { id: 1, first: { image: 'assets/Descobrimento.png' }, second: { image: 'assets/Descobrimento.png' } },
             { id: 2, first: { title: 'Maloca', emoji: '🛖' }, second: { title: 'Moradia coletiva', detail: 'Em alguns povos, grandes casas reuniam várias famílias.', emoji: '🏡' } },
             { id: 3, first: { title: 'Mandioca', emoji: '🥔' }, second: { title: 'Agricultura', detail: 'Era cultivada por diferentes povos indígenas.', emoji: '🌱' } },
             { id: 4, first: { title: 'Tradição oral', emoji: '🗣️' }, second: { title: 'Saberes', detail: 'Histórias e conhecimentos passavam entre gerações.', emoji: '🔥' } }
@@ -296,14 +296,17 @@ function revealCard(card, cardData) {
 
     const face = document.createElement('span');
     face.className = 'card-front';
-    const emoji = document.createElement('span');
-    emoji.className = 'card-emoji';
-    emoji.setAttribute('aria-hidden', 'true');
-    emoji.textContent = cardData.emoji;
     const title = document.createElement('span');
     title.className = 'card-title';
     title.textContent = cardData.title;
-    face.append(emoji, title);
+
+    if (cardData.image) {
+        const image = document.createElement('img');
+        image.className = 'card-image';
+        image.src = cardData.image;
+        image.alt = '';
+        face.append(image, title);
+    }
 
     if (cardData.detail) {
         const detail = document.createElement('span');
