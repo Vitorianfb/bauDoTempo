@@ -4,7 +4,7 @@ const phases = [
         title: 'Os primeiros habitantes do Brasil',
         period: 'Antes de 1500',
         description: 'Povos indígenas, seus costumes, moradias, objetos e tradições.',
-        emoji: '🪶',
+        //emoji: '🪶',
         color: '#b97842',
         tint: '#fbefdf',
         pairs: [
@@ -19,7 +19,7 @@ const phases = [
         title: 'A chegada dos portugueses',
         period: '1500 e início da colonização',
         description: 'Cabral, a chegada portuguesa e os primeiros contatos entre os povos.',
-        emoji: '⛵',
+        //emoji: '⛵',
         color: '#3984a4',
         tint: '#e7f4f8',
         pairs: [
