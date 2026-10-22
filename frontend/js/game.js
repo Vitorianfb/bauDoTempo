@@ -88,21 +88,6 @@ const phases = [
             { id: 3, first: { title: 'Urbanização', emoji: '🏗️' }, second: { title: 'Cidades em expansão', detail: 'Muitas cidades cresceram ao longo do século XX.', emoji: '🚦' } },
             { id: 4, first: { title: 'Cultura brasileira', emoji: '🎶' }, second: { title: 'Novas expressões', detail: 'Música, rádio, cinema e televisão ganharam espaço.', emoji: '📻' } }
         ]
-    },
-    {
-        id: 7,
-        title: 'O Brasil de hoje',
-        period: 'Atualidade',
-        description: 'Símbolos nacionais, diversidade cultural, cidadania e Brasil atual.',
-        emoji: '🌎',
-        color: '#df8c3e',
-        tint: '#fff3df',
-        pairs: [
-            { id: 1, first: { title: 'Bandeira', emoji: '🇧🇷' }, second: { title: 'Símbolo nacional', detail: 'Representa o país junto com outros símbolos oficiais.', emoji: '⭐' } },
-            { id: 2, first: { title: 'Diversidade cultural', emoji: '🎭' }, second: { title: 'Muitas identidades', detail: 'Culturas e tradições variadas fazem parte do Brasil.', emoji: '🎨' } },
-            { id: 3, first: { title: 'Cidadania', emoji: '🤝' }, second: { title: 'Direitos e deveres', detail: 'Participar da sociedade envolve direitos e responsabilidades.', emoji: '⚖️' } },
-            { id: 4, first: { title: 'Território brasileiro', emoji: '🗺️' }, second: { title: 'Biomas', detail: 'Amazônia, Cerrado, Caatinga e outros biomas compõem o país.', emoji: '🌳' } }
-        ]
     }
 ];
 
