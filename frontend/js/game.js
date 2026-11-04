@@ -23,10 +23,10 @@ const phases = [
         color: '#3984a4',
         tint: '#e7f4f8',
         pairs: [
-            { id: 1, first: { title: 'Pedro Álvares Cabral', emoji: '⛵' }, second: { title: 'Chegada em 1500', detail: 'A frota portuguesa alcançou o litoral em abril de 1500.', emoji: '🌊' } },
-            { id: 2, first: { title: 'Pero Vaz de Caminha', emoji: '✒️' }, second: { title: 'Carta', detail: 'Relatou a viagem e o contato com os povos indígenas.', emoji: '📜' } },
-            { id: 3, first: { title: 'Pau-brasil', emoji: '🌳' }, second: { title: 'Extração', detail: 'A madeira era valorizada por seu corante avermelhado.', emoji: '🪵' } },
-            { id: 4, first: { title: 'Primeiros contatos', emoji: '🤝' }, second: { title: 'Encontro de povos', detail: 'A chegada marcou relações diversas e desiguais.', emoji: '🧭' } }
+            { id: 1, first: { image: 'assets/Descobrimento.png' }, second: { image: 'assets/Descobrimento.png' } },
+            { id: 2, first: { image: 'assets/Pero-vaz-de-caminha.jpg' }, second: { image: 'assets/Pero-vaz-de-caminha.jpg' } },
+            { id: 3, first: { image: 'assets/pedroAlvares.jpg' }, second: { image: 'assets/pedroAlvares.jpg' } },
+            { id: 4, first: { image: 'assets/Meirelles-primeiramissa2.jpg' }, second: { image: 'assets/Meirelles-primeiramissa2.jpg' } },
         ]
     },
     {
