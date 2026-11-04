@@ -53,10 +53,10 @@ const phases = [
         color: '#b23a48',
         tint: 'color-mix(in srgb, #b23a48 10%, #f8f1dd)',
         pairs: [
-            { id: 1, first: { image: 'assets/pedro2.jpg' }, second: { image: 'assets/pedro2.jpg' } },
-            { id: 2, first: { image: 'assets/isabel.jpg' }, second: { image: 'assets/isabel.jpg' } },
-            { id: 3, first: { image: 'assets/Luiz_Gama.png' }, second: { image: 'assets/Luiz_Gama.png' } },
-            { id: 4, first: { image: 'assets/quiteria.jpeg' }, second: { image: 'assets/quiteria.jpeg' } },
+            { id: 1, first: { image: 'assets/deodoro.jpg' }, second: { image: 'assets/deodoro.jpg' } },
+            { id: 2, first: { image: 'assets/João.jpg' }, second: { image: 'assets/João.jpg' } },
+            { id: 3, first: { image: 'assets/bertha.jpg' }, second: { image: 'assets/bertha.jpg' } },
+            { id: 4, first: { image: 'assets/Abaporu.jpg' }, second: { image: 'assets/Abaporu.jpg' } },
         ]
     },
     {
