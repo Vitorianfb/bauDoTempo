@@ -1,27 +1,12 @@
 const phases = [
     {
         id: 1,
-        title: 'Os primeiros habitantes do Brasil',
-        period: 'Antes de 1500',
-        description: 'Povos indígenas, seus costumes, moradias, objetos e tradições.',
-        //emoji: '🪶',
-        color: '#b97842',
-        tint: '#fbefdf',
-        pairs: [
-            { id: 1, first: { image: 'assets/Descobrimento.png' }, second: { image: 'assets/Descobrimento.png' } },
-            { id: 2, first: { title: 'Maloca', emoji: '🛖' }, second: { title: 'Moradia coletiva', detail: 'Em alguns povos, grandes casas reuniam várias famílias.', emoji: '🏡' } },
-            { id: 3, first: { title: 'Mandioca', emoji: '🥔' }, second: { title: 'Agricultura', detail: 'Era cultivada por diferentes povos indígenas.', emoji: '🌱' } },
-            { id: 4, first: { title: 'Tradição oral', emoji: '🗣️' }, second: { title: 'Saberes', detail: 'Histórias e conhecimentos passavam entre gerações.', emoji: '🔥' } }
-        ]
-    },
-    {
-        id: 2,
         title: 'A chegada dos portugueses',
         period: '1500 e início da colonização',
         description: 'Cabral, a chegada portuguesa e os primeiros contatos entre os povos.',
         //emoji: '⛵',
-        color: '#3984a4',
-        tint: '#e7f4f8',
+        color: '#1b9aaa',
+        tint: 'color-mix(in srgb, #1b9aaa 12%, #f8f1dd)',
         pairs: [
             { id: 1, first: { image: 'assets/Descobrimento.png' }, second: { image: 'assets/Descobrimento.png' } },
             { id: 2, first: { image: 'assets/Pero-vaz-de-caminha.jpg' }, second: { image: 'assets/Pero-vaz-de-caminha.jpg' } },
@@ -30,13 +15,13 @@ const phases = [
         ]
     },
     {
-        id: 3,
+        id: 2,
         title: 'Brasil Colônia',
         period: 'Séculos XVI ao início do XIX',
         description: 'Engenhos, mineração, bandeirantes e trabalho escravizado.',
         emoji: '🏺',
-        color: '#bc704d',
-        tint: '#fbede5',
+        color: '#6f4e37',
+        tint: 'color-mix(in srgb, #6f4e37 12%, #f8f1dd)',
         pairs: [
             { id: 1, first: { title: 'Engenho', emoji: '🏚️' }, second: { title: 'Açúcar', detail: 'A produção açucareira marcou a economia colonial.', emoji: '🍬' } },
             { id: 2, first: { title: 'Mineração', emoji: '⛏️' }, second: { title: 'Ouro', detail: 'A descoberta de ouro impulsionou a ocupação do interior.', emoji: '🪙' } },
@@ -45,13 +30,13 @@ const phases = [
         ]
     },
     {
-        id: 4,
+        id: 3,
         title: 'A Independência e o Império',
         period: '1822–1889',
         description: 'Independência, reinados, Dom Pedro II e abolição da escravidão.',
         emoji: '👑',
-        color: '#7561c9',
-        tint: '#f0edff',
+        color: '#d4a017',
+        tint: 'color-mix(in srgb, #d4a017 18%, #f8f1dd)',
         pairs: [
             { id: 1, first: { title: 'Dom Pedro I', emoji: '👑' }, second: { title: 'Independência', detail: 'Proclamada em 7 de setembro de 1822.', emoji: '📜' } },
             { id: 2, first: { title: 'Primeiro Reinado', emoji: '🏛️' }, second: { title: '1822 a 1831', detail: 'Período em que Dom Pedro I governou o Brasil.', emoji: '📆' } },
@@ -60,13 +45,13 @@ const phases = [
         ]
     },
     {
-        id: 5,
+        id: 4,
         title: 'O início da República',
         period: 'A partir de 1889',
         description: 'A República, Marechal Deodoro e as mudanças no governo.',
         emoji: '🇧🇷',
-        color: '#43966f',
-        tint: '#e9f6ed',
+        color: '#b23a48',
+        tint: 'color-mix(in srgb, #b23a48 10%, #f8f1dd)',
         pairs: [
             { id: 1, first: { title: 'República', emoji: '🇧🇷' }, second: { title: '15 de novembro', detail: 'A República foi proclamada em 1889.', emoji: '📅' } },
             { id: 2, first: { title: 'Deodoro da Fonseca', emoji: '🪖' }, second: { title: 'Primeiro presidente', detail: 'Foi o primeiro presidente do Brasil republicano.', emoji: '🏛️' } },
@@ -75,13 +60,13 @@ const phases = [
         ]
     },
     {
-        id: 6,
+        id: 5,
         title: 'O Brasil se transforma',
         period: 'Século XX',
         description: 'Brasília, cidades, cultura e mudanças no cotidiano brasileiro.',
         emoji: '🏙️',
-        color: '#398da0',
-        tint: '#e7f5f6',
+        color: '#1b9aaa',
+        tint: 'color-mix(in srgb, #1b9aaa 12%, #f8f1dd)',
         pairs: [
             { id: 1, first: { title: 'Brasília', emoji: '🏙️' }, second: { title: 'Inaugurada em 1960', detail: 'A nova capital foi inaugurada durante o governo JK.', emoji: '🎉' } },
             { id: 2, first: { title: 'Juscelino Kubitschek', emoji: '🤵' }, second: { title: '50 anos em 5', detail: 'Seu governo ficou marcado por esse plano de desenvolvimento.', emoji: '📈' } },
