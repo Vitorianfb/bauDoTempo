@@ -23,10 +23,10 @@ const phases = [
         color: '#6f4e37',
         tint: 'color-mix(in srgb, #6f4e37 12%, #f8f1dd)',
         pairs: [
-            { id: 1, first: { title: 'Engenho', emoji: '🏚️' }, second: { title: 'Açúcar', detail: 'A produção açucareira marcou a economia colonial.', emoji: '🍬' } },
-            { id: 2, first: { title: 'Mineração', emoji: '⛏️' }, second: { title: 'Ouro', detail: 'A descoberta de ouro impulsionou a ocupação do interior.', emoji: '🪙' } },
-            { id: 3, first: { title: 'Bandeirantes', emoji: '🥾' }, second: { title: 'Expedições', detail: 'Entradas pelo interior ampliaram o território colonizado.', emoji: '🗺️' } },
-            { id: 4, first: { title: 'Escravização', emoji: '⛓️' }, second: { title: 'Resistência', detail: 'Africanos e indígenas foram escravizados e resistiram de muitas formas.', emoji: '✊🏿' } }
+            { id: 1, first: { image: 'assets/Aleijadinho.jpg' }, second: { image: 'assets/Aleijadinho.jpg' } },
+            { id: 2, first: { image: 'assets/dandara.jpg' }, second: { image: 'assets/dandara.jpg' } },
+            { id: 3, first: { image: 'assets/zumbi.jpg' }, second: { image: 'assets/zumbi.jpg' } },
+            { id: 4, first: { image: 'assets/tiradentes.jpg' }, second: { image: 'assets/tiradentes.jpg' } },
         ]
     },
     {
