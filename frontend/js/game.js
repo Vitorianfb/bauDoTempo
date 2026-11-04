@@ -23,10 +23,10 @@ const phases = [
         color: '#6f4e37',
         tint: 'color-mix(in srgb, #6f4e37 12%, #f8f1dd)',
         pairs: [
-            { id: 1, first: { title: 'Engenho', emoji: '🏚️' }, second: { title: 'Açúcar', detail: 'A produção açucareira marcou a economia colonial.', emoji: '🍬' } },
-            { id: 2, first: { title: 'Mineração', emoji: '⛏️' }, second: { title: 'Ouro', detail: 'A descoberta de ouro impulsionou a ocupação do interior.', emoji: '🪙' } },
-            { id: 3, first: { title: 'Bandeirantes', emoji: '🥾' }, second: { title: 'Expedições', detail: 'Entradas pelo interior ampliaram o território colonizado.', emoji: '🗺️' } },
-            { id: 4, first: { title: 'Escravização', emoji: '⛓️' }, second: { title: 'Resistência', detail: 'Africanos e indígenas foram escravizados e resistiram de muitas formas.', emoji: '✊🏿' } }
+            { id: 1, first: { image: 'assets/Aleijadinho.jpg' }, second: { image: 'assets/Aleijadinho.jpg' } },
+            { id: 2, first: { image: 'assets/dandara.jpg' }, second: { image: 'assets/dandara.jpg' } },
+            { id: 3, first: { image: 'assets/zumbi.jpg' }, second: { image: 'assets/zumbi.jpg' } },
+            { id: 4, first: { image: 'assets/tiradentes.jpg' }, second: { image: 'assets/tiradentes.jpg' } },
         ]
     },
     {
@@ -38,10 +38,10 @@ const phases = [
         color: '#d4a017',
         tint: 'color-mix(in srgb, #d4a017 18%, #f8f1dd)',
         pairs: [
-            { id: 1, first: { title: 'Dom Pedro I', emoji: '👑' }, second: { title: 'Independência', detail: 'Proclamada em 7 de setembro de 1822.', emoji: '📜' } },
-            { id: 2, first: { title: 'Primeiro Reinado', emoji: '🏛️' }, second: { title: '1822 a 1831', detail: 'Período em que Dom Pedro I governou o Brasil.', emoji: '📆' } },
-            { id: 3, first: { title: 'Dom Pedro II', emoji: '🎩' }, second: { title: 'Segundo Reinado', detail: 'Período de governo de 1840 a 1889.', emoji: '🏰' } },
-            { id: 4, first: { title: 'Lei Áurea', emoji: '🖋️' }, second: { title: 'Abolição em 1888', detail: 'Conquista após longa luta e resistência de pessoas escravizadas e abolicionistas.', emoji: '🕊️' } }
+            { id: 1, first: { image: 'assets/pedro2.jpg' }, second: { image: 'assets/pedro2.jpg' } },
+            { id: 2, first: { image: 'assets/isabel.jpg' }, second: { image: 'assets/isabel.jpg' } },
+            { id: 3, first: { image: 'assets/Luiz_Gama.png' }, second: { image: 'assets/Luiz_Gama.png' } },
+            { id: 4, first: { image: 'assets/quiteria.jpeg' }, second: { image: 'assets/quiteria.jpeg' } },
         ]
     },
     {
@@ -53,10 +53,10 @@ const phases = [
         color: '#b23a48',
         tint: 'color-mix(in srgb, #b23a48 10%, #f8f1dd)',
         pairs: [
-            { id: 1, first: { title: 'República', emoji: '🇧🇷' }, second: { title: '15 de novembro', detail: 'A República foi proclamada em 1889.', emoji: '📅' } },
-            { id: 2, first: { title: 'Deodoro da Fonseca', emoji: '🪖' }, second: { title: 'Primeiro presidente', detail: 'Foi o primeiro presidente do Brasil republicano.', emoji: '🏛️' } },
-            { id: 3, first: { title: 'Constituição', emoji: '📖' }, second: { title: '1891', detail: 'A primeira Constituição republicana foi promulgada nesse ano.', emoji: '⚖️' } },
-            { id: 4, first: { title: 'Café', emoji: '☕' }, second: { title: 'Exportação', detail: 'O café teve grande importância econômica no período.', emoji: '🚢' } }
+            { id: 1, first: { image: 'assets/pedro2.jpg' }, second: { image: 'assets/pedro2.jpg' } },
+            { id: 2, first: { image: 'assets/isabel.jpg' }, second: { image: 'assets/isabel.jpg' } },
+            { id: 3, first: { image: 'assets/Luiz_Gama.png' }, second: { image: 'assets/Luiz_Gama.png' } },
+            { id: 4, first: { image: 'assets/quiteria.jpeg' }, second: { image: 'assets/quiteria.jpeg' } },
         ]
     },
     {
