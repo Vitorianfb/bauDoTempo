@@ -23,10 +23,10 @@ const phases = [
         color: '#6f4e37',
         tint: 'color-mix(in srgb, #6f4e37 12%, #f8f1dd)',
         pairs: [
-            { id: 1, first: { image: 'assets/Aleijadinho.jpg' }, second: { image: 'assets/Aleijadinho.jpg' } },
-            { id: 2, first: { image: 'assets/dandara.jpg' }, second: { image: 'assets/dandara.jpg' } },
-            { id: 3, first: { image: 'assets/zumbi.jpg' }, second: { image: 'assets/zumbi.jpg' } },
-            { id: 4, first: { image: 'assets/tiradentes.jpg' }, second: { image: 'assets/tiradentes.jpg' } },
+            { id: 1, first: { title: 'Engenho', emoji: '🏚️' }, second: { title: 'Açúcar', detail: 'A produção açucareira marcou a economia colonial.', emoji: '🍬' } },
+            { id: 2, first: { title: 'Mineração', emoji: '⛏️' }, second: { title: 'Ouro', detail: 'A descoberta de ouro impulsionou a ocupação do interior.', emoji: '🪙' } },
+            { id: 3, first: { title: 'Bandeirantes', emoji: '🥾' }, second: { title: 'Expedições', detail: 'Entradas pelo interior ampliaram o território colonizado.', emoji: '🗺️' } },
+            { id: 4, first: { title: 'Escravização', emoji: '⛓️' }, second: { title: 'Resistência', detail: 'Africanos e indígenas foram escravizados e resistiram de muitas formas.', emoji: '✊🏿' } }
         ]
     },
     {
@@ -109,10 +109,21 @@ let timerInterval = null;
 let mismatchTimeout = null;
 let playerName = '';
 let currentPhase = null;
+let currentPhaseIndex = 0;
 let resultSaved = false;
+let onVictoryAction = null;
 
 document.getElementById('restart').addEventListener('click', startGame);
-document.getElementById('play-again').addEventListener('click', startGame);
+document.getElementById('play-again').addEventListener('click', () => {
+    if (onVictoryAction) {
+        const nextAction = onVictoryAction;
+        onVictoryAction = null;
+        nextAction();
+        return;
+    }
+
+    startGame();
+});
 document.getElementById('change-player').addEventListener('click', showNameScreen);
 document.getElementById('change-phase').addEventListener('click', showPhaseScreen);
 document.getElementById('phase-back').addEventListener('click', showNameScreen);
@@ -127,10 +138,12 @@ nameForm.addEventListener('submit', (event) => {
     }
 
     nameError.textContent = '';
+    currentPhaseIndex = 0;
+    currentPhase = phases[currentPhaseIndex];
     nameScreen.hidden = true;
-    phaseScreen.hidden = false;
-    document.getElementById('phase-player-name').textContent = playerName;
-    renderPhases();
+    phaseScreen.hidden = true;
+    gamePanel.hidden = false;
+    startGame();
 });
 
 function renderPhases() {
@@ -167,6 +180,7 @@ function renderPhases() {
 
         button.append(artwork, copy);
         button.addEventListener('click', () => {
+            currentPhaseIndex = phase.id - 1;
             currentPhase = phase;
             phaseScreen.hidden = true;
             gamePanel.hidden = false;
@@ -357,7 +371,36 @@ function finishGame() {
     window.clearInterval(timerInterval);
     timerInterval = null;
     saveResult();
-    victoryMessage.textContent = `Você fez ${score} pontos em ${moves} tentativas e ${formatTime(secondsElapsed)}. Mandou bem!`;
+
+    const isLastPhase = currentPhaseIndex >= phases.length - 1;
+    const nextPhase = phases[currentPhaseIndex + 1];
+
+    if (!isLastPhase && nextPhase) {
+        onVictoryAction = () => {
+            currentPhaseIndex += 1;
+            currentPhase = phases[currentPhaseIndex];
+            document.getElementById('play-again').textContent = 'Jogar novamente';
+            phaseScreen.hidden = true;
+            gamePanel.hidden = false;
+            startGame();
+        };
+
+        victoryMessage.textContent = `Fase ${currentPhase.id} concluída! Agora você vai para a fase ${nextPhase.id}: ${nextPhase.title}.`;
+        document.getElementById('play-again').textContent = `Ir para a fase ${nextPhase.id}`;
+    } else {
+        onVictoryAction = () => {
+            currentPhaseIndex = 0;
+            currentPhase = phases[currentPhaseIndex];
+            document.getElementById('play-again').textContent = 'Jogar novamente';
+            phaseScreen.hidden = true;
+            gamePanel.hidden = false;
+            startGame();
+        };
+
+        victoryMessage.textContent = `Você completou todas as fases! Fez ${score} pontos em ${moves} tentativas e ${formatTime(secondsElapsed)}.`;
+        document.getElementById('play-again').textContent = 'Jogar novamente';
+    }
+
     victoryPanel.hidden = false;
     messageElement.textContent = 'Você encontrou todos os pares e completou sua viagem pela história!';
     messageElement.className = 'message success';
