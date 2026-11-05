@@ -68,10 +68,10 @@ const phases = [
         color: '#1b9aaa',
         tint: 'color-mix(in srgb, #1b9aaa 12%, #f8f1dd)',
         pairs: [
-            { id: 1, first: { title: 'Brasília', emoji: '🏙️' }, second: { title: 'Inaugurada em 1960', detail: 'A nova capital foi inaugurada durante o governo JK.', emoji: '🎉' } },
-            { id: 2, first: { title: 'Juscelino Kubitschek', emoji: '🤵' }, second: { title: '50 anos em 5', detail: 'Seu governo ficou marcado por esse plano de desenvolvimento.', emoji: '📈' } },
-            { id: 3, first: { title: 'Urbanização', emoji: '🏗️' }, second: { title: 'Cidades em expansão', detail: 'Muitas cidades cresceram ao longo do século XX.', emoji: '🚦' } },
-            { id: 4, first: { title: 'Cultura brasileira', emoji: '🎶' }, second: { title: 'Novas expressões', detail: 'Música, rádio, cinema e televisão ganharam espaço.', emoji: '📻' } }
+            { id: 1, first: { image: 'assets/carmen.jpg' }, second: { image: 'assets/carmen.jpg' } },
+            { id: 2, first: { image: 'assets/cruz.jpg' }, second: { image: 'assets/cruz.jpg' } },
+            { id: 3, first: { image: 'assets/getulio.jpg' }, second: { image: 'assets/getulio.jpg' } },
+            { id: 4, first: { image: 'assets/juscelino.jpg' }, second: { image: 'assets/juscelino.jpg' } },
         ]
     }
 ];
