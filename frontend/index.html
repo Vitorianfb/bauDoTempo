@@ -98,6 +98,16 @@
             <p id="message" class="message" role="status" aria-live="polite">Escolha uma carta para começar a aventura!</p>
             <div id="game-board" class="game-board" aria-label="Cartas do jogo"></div>
 
+            <dialog id="matched-image-dialog" class="matched-image-dialog" aria-labelledby="matched-image-name">
+                <form method="dialog" class="matched-image-content">
+                    <button class="matched-image-close" type="submit" aria-label="Fechar">×</button>
+                    <span class="eyebrow">PAR ENCONTRADO</span>
+                    <img id="matched-image" class="matched-image" alt="">
+                    <h2 id="matched-image-name"></h2>
+                    <button class="matched-image-continue" type="submit">Continuar</button>
+                </form>
+            </dialog>
+
             <section id="victory" class="victory" aria-live="polite" hidden>
                 <span aria-hidden="true">🎉</span>
                 <div>

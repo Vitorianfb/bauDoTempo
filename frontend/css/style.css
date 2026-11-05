@@ -211,6 +211,15 @@ button:focus-visible, .card:focus-visible { outline: 3px solid var(--primary); o
 .card.matched .card-detail { color: var(--secondary); }
 .card:disabled { cursor: default; }
 
+.matched-image-dialog { width: min(380px, calc(100% - 32px)); max-width: none; padding: 0; overflow: visible; border: 1px solid var(--border); border-radius: 20px; background: var(--surface); color: var(--ink); box-shadow: 0 24px 80px rgba(58, 38, 24, .3); }
+.matched-image-dialog::backdrop { background: rgba(36, 27, 21, .62); backdrop-filter: blur(3px); }
+.matched-image-content { position: relative; display: grid; justify-items: center; gap: 10px; padding: 22px; }
+.matched-image-close { position: absolute; top: 10px; right: 12px; width: 34px; height: 34px; border: 0; border-radius: 50%; background: color-mix(in srgb, var(--secondary) 9%, var(--surface)); color: var(--secondary); cursor: pointer; font-size: 24px; line-height: 1; }
+.matched-image { display: block; width: 100%; max-height: 48vh; aspect-ratio: 4 / 3; border-radius: 12px; object-fit: contain; background: color-mix(in srgb, var(--secondary) 7%, var(--surface)); }
+.matched-image-dialog h2 { margin: 0; color: var(--secondary); font-family: 'Fredoka', sans-serif; font-size: 25px; font-weight: 600; text-align: center; }
+.matched-image-continue { min-height: 42px; margin-top: 3px; padding: 0 22px; border: 0; border-radius: 10px; background: var(--primary); box-shadow: 0 3px 0 var(--secondary); color: var(--ink); cursor: pointer; font-size: 13px; font-weight: 800; }
+.matched-image-close:focus-visible, .matched-image-continue:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
 .victory { display: flex; align-items: center; gap: 12px; margin-top: 18px; padding: 15px 17px; border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--surface)); border-radius: 16px; background: color-mix(in srgb, var(--accent) 12%, var(--surface)); }
 .victory[hidden] { display: none; }
 .victory > span { font-size: 31px; }

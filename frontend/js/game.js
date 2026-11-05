@@ -85,6 +85,9 @@ const pairsFoundElement = document.getElementById('pairs-found');
 const progressBar = document.getElementById('progress-bar');
 const progressFill = document.getElementById('progress-fill');
 const victoryPanel = document.getElementById('victory');
+const matchedImageDialog = document.getElementById('matched-image-dialog');
+const matchedImage = document.getElementById('matched-image');
+const matchedImageName = document.getElementById('matched-image-name');
 const victoryMessage = document.getElementById('victory-message');
 const nameScreen = document.getElementById('name-screen');
 const phaseScreen = document.getElementById('phase-screen');
@@ -113,6 +116,29 @@ let currentPhaseIndex = 0;
 let resultSaved = false;
 let onVictoryAction = null;
 
+const imageNames = {
+    'Descobrimento.png': 'Descobrimento do Brasil',
+    'Pero-vaz-de-caminha.jpg': 'Pero Vaz de Caminha',
+    'pedroAlvares.jpg': 'Pedro Álvares Cabral',
+    'Meirelles-primeiramissa2.jpg': 'A Primeira Missa no Brasil',
+    'Aleijadinho.jpg': 'Aleijadinho',
+    'dandara.jpg': 'Dandara dos Palmares',
+    'zumbi.jpg': 'Zumbi dos Palmares',
+    'tiradentes.jpg': 'Tiradentes',
+    'pedro2.jpg': 'Dom Pedro II',
+    'isabel.jpg': 'Princesa Isabel',
+    'Luiz_Gama.png': 'Luiz Gama',
+    'quiteria.jpeg': 'Maria Quitéria',
+    'deodoro.jpg': 'Marechal Deodoro da Fonseca',
+    'João.jpg': 'João',
+    'bertha.jpg': 'Bertha Lutz',
+    'Abaporu.jpg': 'Abaporu',
+    'carmen.jpg': 'Carmen Miranda',
+    'cruz.jpg': 'Cruz',
+    'getulio.jpg': 'Getúlio Vargas',
+    'juscelino.jpg': 'Juscelino Kubitschek'
+};
+
 document.getElementById('restart').addEventListener('click', startGame);
 document.getElementById('play-again').addEventListener('click', () => {
     if (onVictoryAction) {
@@ -127,6 +153,9 @@ document.getElementById('play-again').addEventListener('click', () => {
 document.getElementById('change-player').addEventListener('click', showNameScreen);
 document.getElementById('change-phase').addEventListener('click', showPhaseScreen);
 document.getElementById('phase-back').addEventListener('click', showNameScreen);
+matchedImageDialog.addEventListener('click', (event) => {
+    if (event.target === matchedImageDialog) matchedImageDialog.close();
+});
 nameForm.addEventListener('submit', (event) => {
     event.preventDefault();
     playerName = nameInput.value.trim();
@@ -205,6 +234,11 @@ function formatTime(totalSeconds) {
     return `${minutes}:${seconds}`;
 }
 
+function getImageName(imagePath) {
+    const imageFileName = imagePath.split('/').pop();
+    return imageNames[imageFileName] || imageFileName;
+}
+
 function startTimer() {
     if (timerInterval !== null) return;
     timerInterval = window.setInterval(() => {
@@ -213,11 +247,15 @@ function startTimer() {
     }, 1000);
 }
 
-function startGame() {
+function startGame({ continueTimer = false } = {}) {
     if (!currentPhase) return;
-    window.clearInterval(timerInterval);
+    if (!continueTimer) {
+        window.clearInterval(timerInterval);
+        timerInterval = null;
+        secondsElapsed = 0;
+        timerElement.textContent = '00:00';
+    }
     window.clearTimeout(mismatchTimeout);
-    timerInterval = null;
     mismatchTimeout = null;
     firstCard = null;
     secondCard = null;
@@ -225,11 +263,9 @@ function startGame() {
     score = 0;
     moves = 0;
     matchedPairs = 0;
-    secondsElapsed = 0;
     resultSaved = false;
     scoreElement.textContent = '0';
     movesElement.textContent = '0';
-    timerElement.textContent = '00:00';
     pairsFoundElement.textContent = '0';
     progressFill.style.width = '0%';
     document.getElementById('pairs-total').textContent = currentPhase.pairs.length;
@@ -247,8 +283,8 @@ function startGame() {
 function renderBoard() {
     board.replaceChildren();
     const cards = shuffle(currentPhase.pairs.flatMap((pair) => [
-        { ...pair.first, pairId: pair.id },
-        { ...pair.second, pairId: pair.id }
+        { ...pair.first, title: getImageName(pair.first.image), pairId: pair.id },
+        { ...pair.second, title: getImageName(pair.second.image), pairId: pair.id }
     ]));
 
     cards.forEach((cardData) => {
@@ -295,16 +331,13 @@ function revealCard(card, cardData) {
 
     const face = document.createElement('span');
     face.className = 'card-front';
-    const title = document.createElement('span');
-    title.className = 'card-title';
-    title.textContent = cardData.title;
 
     if (cardData.image) {
         const image = document.createElement('img');
         image.className = 'card-image';
         image.src = cardData.image;
         image.alt = '';
-        face.append(image, title);
+        face.append(image);
     }
 
     if (cardData.detail) {
@@ -319,6 +352,11 @@ function revealCard(card, cardData) {
 
 function checkMatch() {
     if (firstCard.cardData.pairId === secondCard.cardData.pairId) {
+        const imagePath = firstCard.cardData.image;
+        matchedImage.src = imagePath;
+        matchedImage.alt = getImageName(imagePath);
+        matchedImageName.textContent = getImageName(imagePath);
+        matchedImageDialog.showModal();
         firstCard.classList.add('matched');
         secondCard.classList.add('matched');
         firstCard.disabled = true;
@@ -368,12 +406,14 @@ function resetTurn() {
 }
 
 function finishGame() {
-    window.clearInterval(timerInterval);
-    timerInterval = null;
-    saveResult();
-
     const isLastPhase = currentPhaseIndex >= phases.length - 1;
     const nextPhase = phases[currentPhaseIndex + 1];
+
+    if (isLastPhase) {
+        window.clearInterval(timerInterval);
+        timerInterval = null;
+    }
+    saveResult();
 
     if (!isLastPhase && nextPhase) {
         onVictoryAction = () => {
@@ -382,7 +422,7 @@ function finishGame() {
             document.getElementById('play-again').textContent = 'Jogar novamente';
             phaseScreen.hidden = true;
             gamePanel.hidden = false;
-            startGame();
+            startGame({ continueTimer: true });
         };
 
         victoryMessage.textContent = `Fase ${currentPhase.id} concluída! Agora você vai para a fase ${nextPhase.id}: ${nextPhase.title}.`;
