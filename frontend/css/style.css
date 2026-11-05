@@ -199,15 +199,15 @@ button:focus-visible, .card:focus-visible { outline: 3px solid var(--primary); o
 .card:hover:not(:disabled) { transform: translateY(-3px) rotate(-1deg); box-shadow: 0 7px 0 color-mix(in srgb, var(--secondary) 78%, black), 0 11px 17px rgba(58, 38, 24, .17); }
 .card-back { display: flex; align-items: center; justify-content: center; height: 100%; font-family: 'Fredoka', sans-serif; font-size: 39px; font-weight: 500; }
 .card-back::after { content: '✦'; position: absolute; color: var(--primary); font-size: 12px; transform: translate(16px, -17px); }
-.card-front { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 4px; padding: 12px; animation: reveal .25s ease both; }
+.card-front { position: relative; display: flex; align-items: flex-end; justify-content: center; width: 100%; height: 100%; padding: 0; overflow: hidden; box-sizing: border-box; animation: reveal .25s ease both; }
 .card.flipped { background: var(--surface); box-shadow: 0 4px 0 color-mix(in srgb, var(--secondary) 20%, var(--surface)), 0 7px 12px rgba(58, 38, 24, .08); color: var(--ink); }
 .card.flipped::before { border-color: var(--border); }
 .card.matched { background: color-mix(in srgb, var(--accent) 16%, var(--surface)); box-shadow: 0 4px 0 color-mix(in srgb, var(--accent) 30%, var(--surface)), 0 7px 12px rgba(27, 154, 170, .1); color: var(--secondary); cursor: default; animation: match-pop .4s ease; }
 .card.matched::before { border-color: color-mix(in srgb, var(--accent) 35%, var(--surface)); }
 .card-emoji { font-size: clamp(23px, 4vw, 34px); line-height: 1; }
-.card-image { width: min(100%, 140px); max-height: 72%; border-radius: 8px; object-fit: contain; }
-.card-title { max-width: 100%; font-size: clamp(10px, 1.55vw, 13px); font-weight: 800; line-height: 1.2; }
-.card-detail { max-width: 100%; color: var(--muted); font-size: clamp(8px, 1.15vw, 10px); line-height: 1.25; }
+.card-image { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border-radius: 8px; object-fit: cover; object-position: center; }
+.card-title { position: relative; z-index: 1; width: 100%; max-width: 100%; padding: 6px 8px; background: rgba(255, 250, 240, .82); text-align: center; font-size: clamp(10px, 1.55vw, 13px); font-weight: 800; line-height: 1.2; }
+.card-detail { position: relative; z-index: 1; width: 100%; max-width: 100%; padding: 0 8px 6px; background: rgba(255, 250, 240, .82); color: var(--muted); font-size: clamp(8px, 1.15vw, 10px); line-height: 1.25; text-align: center; }
 .card.matched .card-detail { color: var(--secondary); }
 .card:disabled { cursor: default; }
 
