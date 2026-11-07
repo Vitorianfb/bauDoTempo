@@ -155,11 +155,11 @@ const imageDescriptions = {
     'Luiz_Gama.png': 'Luiz Gama foi um advogado e intelectual que lutou pelos direitos de negros e pobres em um Brasil desigual.',
     'quiteria.jpeg': 'Maria Quitéria simboliza a participação feminina na independência do Brasil, quando combateu ao lado dos patriotas.',
     'deodoro.jpg': 'Marechal Deodoro da Fonseca foi o primeiro presidente da República do Brasil e marcou o fim do Império.',
-    'João.jpg': 'João VI simboliza a chegada da família real portuguesa ao Brasil em 1808 e o início de uma nova etapa política.',
+    'João.jpg': 'João Cândido Felisberto, conhecido como Almirante Negro, liderou a Revolta da Chibata em 1910 contra os castigos físicos e as condições desumanas na Marinha.',
     'bertha.jpg': 'Bertha Lutz foi uma feminista e educadora que lutou pelos direitos das mulheres no Brasil.',
     'Abaporu.jpg': 'Abaporu, de Tarsila do Amaral, representa a modernidade e a identidade brasileira na arte.',
     'carmen.jpg': 'Carmen Miranda foi uma grande artista brasileira que simboliza a música, a cultura e a força da identidade nacional.',
-    'cruz.jpg': 'A cruz lembra a presença da religião católica e o papel da fé na formação cultural do Brasil.',
+    'cruz.jpg': 'Oswaldo Cruz foi médico e sanitarista; liderou campanhas de vacinação e de combate a epidemias, como a febre amarela e a varíola, no início do século XX.',
     'getulio.jpg': 'Getúlio Vargas foi um presidente que transformou a política brasileira no século XX com reformas sociais e mudanças institucionais.',
     'juscelino.jpg': 'Juscelino Kubitschek foi presidente que impulsionou o desenvolvimento econômico e foi responsável pela criação de Brasília.'
 };
