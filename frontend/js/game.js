@@ -4,7 +4,7 @@ const phases = [
         title: 'A chegada dos portugueses',
         period: '1500 e início da colonização',
         description: 'Cabral, a chegada portuguesa e os primeiros contatos entre os povos.',
-        //emoji: '⛵',
+        image: 'assets/Descobrimento.png',
         color: '#1b9aaa',
         tint: 'color-mix(in srgb, #1b9aaa 12%, #f8f1dd)',
         pairs: [
@@ -19,7 +19,7 @@ const phases = [
         title: 'Brasil Colônia',
         period: 'Séculos XVI ao início do XIX',
         description: 'Engenhos, mineração, bandeirantes e trabalho escravizado.',
-        emoji: '🏺',
+        image: 'assets/Aleijadinho.jpg',
         color: '#6f4e37',
         tint: 'color-mix(in srgb, #6f4e37 12%, #f8f1dd)',
         pairs: [
@@ -34,7 +34,7 @@ const phases = [
         title: 'A Independência e o Império',
         period: '1822–1889',
         description: 'Independência, reinados, Dom Pedro II e abolição da escravidão.',
-        emoji: '👑',
+        image: 'assets/pedro2.jpg',
         color: '#d4a017',
         tint: 'color-mix(in srgb, #d4a017 18%, #f8f1dd)',
         pairs: [
@@ -49,7 +49,7 @@ const phases = [
         title: 'O início da República',
         period: 'A partir de 1889',
         description: 'A República, Marechal Deodoro e as mudanças no governo.',
-        emoji: '🇧🇷',
+        image: 'assets/deodoro.jpg',
         color: '#b23a48',
         tint: 'color-mix(in srgb, #b23a48 10%, #f8f1dd)',
         pairs: [
@@ -64,7 +64,7 @@ const phases = [
         title: 'O Brasil se transforma',
         period: 'Século XX',
         description: 'Brasília, cidades, cultura e mudanças no cotidiano brasileiro.',
-        emoji: '🏙️',
+        image: 'assets/carmen.jpg',
         color: '#1b9aaa',
         tint: 'color-mix(in srgb, #1b9aaa 12%, #f8f1dd)',
         pairs: [
@@ -217,7 +217,10 @@ function renderPhases() {
         const artwork = document.createElement('span');
         artwork.className = 'phase-art';
         artwork.setAttribute('aria-hidden', 'true');
-        artwork.textContent = phase.emoji;
+        const artworkImage = document.createElement('img');
+        artworkImage.src = phase.image;
+        artworkImage.alt = '';
+        artwork.append(artworkImage);
 
         const copy = document.createElement('span');
         copy.className = 'phase-copy';
