@@ -88,6 +88,7 @@ const victoryPanel = document.getElementById('victory');
 const matchedImageDialog = document.getElementById('matched-image-dialog');
 const matchedImage = document.getElementById('matched-image');
 const matchedImageName = document.getElementById('matched-image-name');
+const matchedImageDescription = document.getElementById('matched-image-description');
 const victoryMessage = document.getElementById('victory-message');
 const nameScreen = document.getElementById('name-screen');
 const phaseScreen = document.getElementById('phase-screen');
@@ -137,6 +138,29 @@ const imageNames = {
     'cruz.jpg': 'Cruz',
     'getulio.jpg': 'Getúlio Vargas',
     'juscelino.jpg': 'Juscelino Kubitschek'
+};
+
+const imageDescriptions = {
+    'Descobrimento.png': 'A chegada de Pedro Álvares Cabral em 1500 marcou o início do contato entre Portugal e a terra que viria a ser o Brasil.',
+    'Pero-vaz-de-caminha.jpg': 'Pero Vaz de Caminha foi o escriba da frota portuguesa e registrou em carta a chegada ao território brasileiro.',
+    'pedroAlvares.jpg': 'Pedro Álvares Cabral liderou a expedição que chegou ao Brasil em 1500 e deu início à colonização portuguesa.',
+    'Meirelles-primeiramissa2.jpg': 'A Primeira Missa simboliza o início da presença católica e da colonização no território brasileiro.',
+    'Aleijadinho.jpg': 'Aleijadinho foi um grande artista barroco, conhecido por suas esculturas e igrejas que marcaram a cultura mineira.',
+    'dandara.jpg': 'Dandara dos Palmares foi uma líder quilombola que representou a resistência contra a escravidão e a luta pela liberdade.',
+    'zumbi.jpg': 'Zumbi dos Palmares simboliza a resistência dos quilombolas e a luta pela liberdade no Brasil colonial.',
+    'tiradentes.jpg': 'Tiradentes foi um líder da resistência contra a coroa portuguesa e virou símbolo da independência brasileira.',
+    'pedro2.jpg': 'Dom Pedro II foi o imperador que consolidou o Brasil como nação e promoveu avanços na educação e na cultura.',
+    'isabel.jpg': 'Princesa Isabel foi a regente que assinou a Lei Áurea, encerrando a escravidão no país.',
+    'Luiz_Gama.png': 'Luiz Gama foi um advogado e intelectual que lutou pelos direitos de negros e pobres em um Brasil desigual.',
+    'quiteria.jpeg': 'Maria Quitéria simboliza a participação feminina na independência do Brasil, quando combateu ao lado dos patriotas.',
+    'deodoro.jpg': 'Marechal Deodoro da Fonseca foi o primeiro presidente da República do Brasil e marcou o fim do Império.',
+    'João.jpg': 'João VI simboliza a chegada da família real portuguesa ao Brasil em 1808 e o início de uma nova etapa política.',
+    'bertha.jpg': 'Bertha Lutz foi uma feminista e educadora que lutou pelos direitos das mulheres no Brasil.',
+    'Abaporu.jpg': 'Abaporu, de Tarsila do Amaral, representa a modernidade e a identidade brasileira na arte.',
+    'carmen.jpg': 'Carmen Miranda foi uma grande artista brasileira que simboliza a música, a cultura e a força da identidade nacional.',
+    'cruz.jpg': 'A cruz lembra a presença da religião católica e o papel da fé na formação cultural do Brasil.',
+    'getulio.jpg': 'Getúlio Vargas foi um presidente que transformou a política brasileira no século XX com reformas sociais e mudanças institucionais.',
+    'juscelino.jpg': 'Juscelino Kubitschek foi presidente que impulsionou o desenvolvimento econômico e foi responsável pela criação de Brasília.'
 };
 
 document.getElementById('restart').addEventListener('click', startGame);
@@ -237,6 +261,11 @@ function formatTime(totalSeconds) {
 function getImageName(imagePath) {
     const imageFileName = imagePath.split('/').pop();
     return imageNames[imageFileName] || imageFileName;
+}
+
+function getImageDescription(imagePath) {
+    const imageFileName = imagePath.split('/').pop();
+    return imageDescriptions[imageFileName] || 'Figura marcante da história e da cultura brasileira.';
 }
 
 function startTimer() {
@@ -356,6 +385,7 @@ function checkMatch() {
         matchedImage.src = imagePath;
         matchedImage.alt = getImageName(imagePath);
         matchedImageName.textContent = getImageName(imagePath);
+        matchedImageDescription.textContent = getImageDescription(imagePath);
         matchedImageDialog.showModal();
         firstCard.classList.add('matched');
         secondCard.classList.add('matched');
@@ -412,8 +442,8 @@ function finishGame() {
     if (isLastPhase) {
         window.clearInterval(timerInterval);
         timerInterval = null;
+        saveResult();
     }
-    saveResult();
 
     if (!isLastPhase && nextPhase) {
         onVictoryAction = () => {
@@ -467,7 +497,6 @@ function saveResult() {
     const entries = getLeaderboard();
     entries.push({
         name: playerName,
-        phase: currentPhase.title,
         seconds: secondsElapsed,
         moves,
         score,
@@ -511,8 +540,7 @@ function renderLeaderboard(entries = getLeaderboard()) {
         name.textContent = entry.name;
         const meta = document.createElement('div');
         meta.className = 'leaderboard-meta';
-        const phaseName = entry.phase ? ` · Fase ${phases.find((phase) => phase.title === entry.phase)?.id || ''}` : '';
-        meta.textContent = `${entry.moves} ${entry.moves === 1 ? 'tentativa' : 'tentativas'} · ${entry.score} pontos${phaseName}`;
+        meta.textContent = `${entry.moves} ${entry.moves === 1 ? 'tentativa' : 'tentativas'} · ${entry.score} pontos`;
         details.append(name, meta);
 
         const time = document.createElement('span');
