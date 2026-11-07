@@ -89,6 +89,7 @@ const matchedImageDialog = document.getElementById('matched-image-dialog');
 const matchedImage = document.getElementById('matched-image');
 const matchedImageName = document.getElementById('matched-image-name');
 const matchedImageDescription = document.getElementById('matched-image-description');
+const repeatAudioDescriptionButton = document.getElementById('repeat-audio-description');
 const victoryMessage = document.getElementById('victory-message');
 const nameScreen = document.getElementById('name-screen');
 const phaseScreen = document.getElementById('phase-screen');
@@ -180,6 +181,9 @@ document.getElementById('phase-back').addEventListener('click', showNameScreen);
 matchedImageDialog.addEventListener('click', (event) => {
     if (event.target === matchedImageDialog) matchedImageDialog.close();
 });
+matchedImageDialog.addEventListener('close', stopAudioDescription);
+repeatAudioDescriptionButton.hidden = !('speechSynthesis' in window && typeof SpeechSynthesisUtterance !== 'undefined');
+repeatAudioDescriptionButton.addEventListener('click', speakAudioDescription);
 nameForm.addEventListener('submit', (event) => {
     event.preventDefault();
     playerName = nameInput.value.trim();
@@ -266,6 +270,26 @@ function getImageName(imagePath) {
 function getImageDescription(imagePath) {
     const imageFileName = imagePath.split('/').pop();
     return imageDescriptions[imageFileName] || 'Figura marcante da história e da cultura brasileira.';
+}
+
+function speakAudioDescription() {
+    if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') return;
+
+    const utterance = new SpeechSynthesisUtterance(`${matchedImageName.textContent}. ${matchedImageDescription.textContent}`);
+    utterance.lang = 'pt-BR';
+    utterance.rate = 0.95;
+
+    const voices = window.speechSynthesis.getVoices();
+    utterance.voice = voices.find((voice) => voice.lang.toLowerCase() === 'pt-br')
+        || voices.find((voice) => voice.lang.toLowerCase().startsWith('pt-'))
+        || null;
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+}
+
+function stopAudioDescription() {
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
 }
 
 function startTimer() {
@@ -387,6 +411,7 @@ function checkMatch() {
         matchedImageName.textContent = getImageName(imagePath);
         matchedImageDescription.textContent = getImageDescription(imagePath);
         matchedImageDialog.showModal();
+        speakAudioDescription();
         firstCard.classList.add('matched');
         secondCard.classList.add('matched');
         firstCard.disabled = true;
