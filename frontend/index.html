@@ -110,14 +110,15 @@
                 </form>
             </dialog>
 
-            <section id="victory" class="victory" aria-live="polite" hidden>
-                <span aria-hidden="true">🎉</span>
-                <div>
-                    <h2>Baú aberto!</h2>
+            <dialog id="victory" class="matched-image-dialog victory-dialog" aria-labelledby="victory-heading">
+                <form method="dialog" class="matched-image-content victory-content">
+                    <span class="victory-icon" aria-hidden="true">🎉</span>
+                    <h2 id="victory-heading">Baú aberto!</h2>
                     <p id="victory-message">Você encontrou todos os pares.</p>
-                </div>
-                <button id="play-again" class="play-again-button" type="button">Jogar novamente</button>
-            </section>
+                    <p id="victory-credits" class="victory-credits" hidden>Criação: Vitória Nunes, Davi Sandro, Nicolas Miranda, Luiz Filipe e Leonardo Cabral. Com a ajuda do professor João Ramalho Ursino da Cruz.</p>
+                    <button id="play-again" class="matched-image-continue" type="submit">Jogar novamente</button>
+                </form>
+            </dialog>
                 </section>
             </div>
 

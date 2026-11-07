@@ -223,13 +223,12 @@ button:focus-visible, .card:focus-visible { outline: 3px solid var(--primary); o
 .matched-image-continue { min-height: 42px; margin-top: 3px; padding: 0 22px; border: 0; border-radius: 10px; background: var(--primary); box-shadow: 0 3px 0 var(--secondary); color: var(--ink); cursor: pointer; font-size: 13px; font-weight: 800; }
 .matched-image-close:focus-visible, .matched-image-audio:focus-visible, .matched-image-continue:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
-.victory { display: flex; align-items: center; gap: 12px; margin-top: 18px; padding: 15px 17px; border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--surface)); border-radius: 16px; background: color-mix(in srgb, var(--accent) 12%, var(--surface)); }
-.victory[hidden] { display: none; }
-.victory > span { font-size: 31px; }
-.victory h2 { color: var(--secondary); font-size: 21px; }
-.victory p { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
-.play-again-button { margin-left: auto; border-color: color-mix(in srgb, var(--accent) 35%, var(--surface)); background: var(--surface); color: var(--secondary); white-space: nowrap; }
-.play-again-button:hover { background: color-mix(in srgb, var(--accent) 12%, var(--surface)); }
+.victory-content { gap: 12px; text-align: center; }
+.victory-icon { font-size: 38px; line-height: 1; }
+.victory-content h2 { margin: 0; color: var(--secondary); font-family: 'Fredoka', sans-serif; font-size: 25px; font-weight: 600; }
+.victory-content p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.victory-content .victory-credits { margin-top: 2px; font-size: 11px; }
+.victory-content .matched-image-continue { margin-top: 4px; }
 .leaderboard-panel { position: sticky; top: 20px; margin-top: 0; padding: 21px 18px 18px; border: 1px solid var(--border); border-radius: 20px; background: rgba(255, 250, 240, .9); box-shadow: 0 9px 28px rgba(58, 38, 24, .05); }
 .leaderboard-heading { display: flex; align-items: center; gap: 12px; }
 .leaderboard-icon { display: grid; width: 43px; height: 43px; flex: 0 0 43px; place-items: center; border-radius: 13px; background: color-mix(in srgb, var(--primary) 23%, var(--surface)); font-size: 23px; }

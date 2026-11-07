@@ -182,6 +182,7 @@ matchedImageDialog.addEventListener('click', (event) => {
     if (event.target === matchedImageDialog) matchedImageDialog.close();
 });
 matchedImageDialog.addEventListener('close', stopAudioDescription);
+victoryPanel.addEventListener('cancel', (event) => event.preventDefault());
 repeatAudioDescriptionButton.hidden = !('speechSynthesis' in window && typeof SpeechSynthesisUtterance !== 'undefined');
 repeatAudioDescriptionButton.addEventListener('click', speakAudioDescription);
 nameForm.addEventListener('submit', (event) => {
@@ -329,7 +330,6 @@ function startGame({ continueTimer = false } = {}) {
     progressBar.setAttribute('aria-valuenow', '0');
     messageElement.textContent = 'Escolha uma carta para começar a aventura!';
     messageElement.className = 'message';
-    victoryPanel.hidden = true;
     document.getElementById('current-player').textContent = playerName;
     document.getElementById('game-phase-title').textContent = currentPhase.title;
     document.getElementById('game-phase-description').textContent = currentPhase.description;
@@ -466,6 +466,7 @@ function resetTurn() {
 function finishGame() {
     const isLastPhase = currentPhaseIndex >= phases.length - 1;
     const nextPhase = phases[currentPhaseIndex + 1];
+    document.getElementById('victory-credits').hidden = !isLastPhase;
 
     if (isLastPhase) {
         window.clearInterval(timerInterval);
@@ -495,11 +496,11 @@ function finishGame() {
             startGame();
         };
 
-        victoryMessage.textContent = `Você completou todas as fases! Fez ${score} pontos em ${moves} tentativas e ${formatTime(secondsElapsed)}.`;
+        victoryMessage.textContent = `Você venceu! Completou todas as fases em ${formatTime(secondsElapsed)}, com ${score} pontos em ${moves} tentativas.`;
         document.getElementById('play-again').textContent = 'Jogar novamente';
     }
 
-    victoryPanel.hidden = false;
+    victoryPanel.showModal();
     messageElement.textContent = 'Você encontrou todos os pares e completou sua viagem pela história!';
     messageElement.className = 'message success';
     document.getElementById('play-again').focus();
